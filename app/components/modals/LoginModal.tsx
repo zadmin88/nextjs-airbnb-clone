@@ -54,10 +54,10 @@ const LoginModal = () => {
     });
   };
 
-  // const onToggle = useCallback(() => {
-  //   loginModal.onClose();
-  //   registerModal.onOpen();
-  // }, [loginModal, registerModal]);
+  const onToggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className='flex flex-col gap-4'>
@@ -104,7 +104,7 @@ const LoginModal = () => {
         <p>
           First time using Airbnb?
           <span
-            // onClick={onToggle}
+            onClick={onToggle}
             className='
               text-neutral-800
               cursor-pointer 
