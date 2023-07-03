@@ -6,12 +6,12 @@ import getListings, { IListingsParams } from '@/app/actions/getListings';
 import getCurrentUser from '@/app/actions/getCurrentUser';
 import ClientOnly from './components/ClientOnly';
 
-// interface HomeProps {
-//   //   searchParams: IListingsParams;
-// }
+interface HomeProps {
+  searchParams: IListingsParams;
+}
 
-export default async function Home() {
-  const listings = await getListings();
+const Home = async ({ searchParams }: HomeProps) => {
+  const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
 
   if (listings.length === 0) {
@@ -49,4 +49,6 @@ export default async function Home() {
       </Container>
     </ClientOnly>
   );
-}
+};
+
+export default Home;
